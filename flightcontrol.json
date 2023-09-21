@@ -18,8 +18,8 @@
           "memory": 1,
           "minInstances": 1,
           "maxInstances": 1,
-          "buildCommand": "pnpm --dir packages/web run build",
-          "startCommand": "pnpm --dir packages/web run build"
+          "buildCommand": "pnpm build:next",
+          "startCommand": "pnpm start:next"
         },
         {
           "id": "worker",
@@ -30,8 +30,8 @@
           "memory": 4,
           "minInstances": 1,
           "maxInstances": 1,
-          "buildCommand": "pnpm --dir packages/temporal run build",
-          "startCommand": "pnpm --dir packages/temporal run build"
+          "buildCommand": "pnpm build:temporal",
+          "startCommand": "pnpm start:temporal"
         }
       ]
     }
