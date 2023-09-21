@@ -1,0 +1,39 @@
+{
+  "$schema": "https://app.flightcontrol.dev/schema.json",
+  "environments": [
+    {
+      "id": "production",
+      "name": "Production",
+      "region": "us-west-1",
+      "source": {
+        "branch": "main"
+      },
+      "services": [
+        {
+          "id": "api",
+          "name": "My Webapp",
+          "type": "fargate",
+          "buildType": "nixpacks",
+          "cpu": 0.5,
+          "memory": 1,
+          "minInstances": 1,
+          "maxInstances": 1,
+          "buildCommand": "pnpm --dir packages/web run build",
+          "startCommand": "pnpm --dir packages/web run build"
+        },
+        {
+          "id": "worker",
+          "name": "Temporal Worker",
+          "type": "fargate-worker",
+          "buildType": "nixpacks",
+          "cpu": 2,
+          "memory": 4,
+          "minInstances": 1,
+          "maxInstances": 1,
+          "buildCommand": "pnpm --dir packages/temporal run build",
+          "startCommand": "pnpm --dir packages/temporal run build"
+        }
+      ]
+    }
+  ]
+}
